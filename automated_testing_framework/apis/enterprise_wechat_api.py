@@ -42,9 +42,10 @@ class EnterpriseWechat:
         result = self.__http_client.send('get', self.__enterprise_wechat_host + url, params=params)
         return result.json()['access_token']
 
-    def enterprise_wechat_send(self, method, url, **kwargs):
+    def enterprise_wechat_send(self, method, url, counter_example_data=None, **kwargs):
         """
         企业微信发送请求通用接口
+        :param counter_example_data: 反例数据
         :param method:
         :param url:
         :param kwargs:
@@ -55,5 +56,6 @@ class EnterpriseWechat:
         else:
             kwargs['params'] = {'access_token': self.__token}
 
-        res = self.__http_client.send(method, self.__enterprise_wechat_host + url, **kwargs)
+        res = self.__http_client.send(method, self.__enterprise_wechat_host + url,
+                                      counter_example_data=counter_example_data, **kwargs)
         return res
