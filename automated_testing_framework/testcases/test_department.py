@@ -41,3 +41,20 @@ class TestDepartment:
         for key, value in case.items():
             res = self.dept_manage.create(value)
             assert res.json()['errcode'] == value['expect']
+
+    @allure.title('获取子部门ID列表')
+    def test_sub_depart(self):
+        res = self.dept_manage.get_sub_depart(parent_id=1)
+        res_json = res.json()
+        id_list = [item['id'] for item in res_json['department_id']]
+        self.__depart_id_list = id_list
+        assert len(id_list) != 0
+
+    @allure.title('删除部门')
+    def test_delete_depart(self):
+        self.test_sub_depart()
+        # 删除 1号 部门
+        self.__depart_id_list.remove(1)
+        for depart_id in self.__depart_id_list:
+            res = self.dept_manage.delete(depart_id)
+            assert res.json()['errcode'] == 0

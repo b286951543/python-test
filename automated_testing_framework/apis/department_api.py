@@ -23,3 +23,29 @@ class Department(EnterpriseWechat):
         # json 会自动放入请求体
         res = self.enterprise_wechat_send('post', url, json=json, counter_example_data=counter_example_data)
         return res
+
+    def get_sub_depart(self, parent_id=1):
+        """
+        获取子部门ID列表
+        :return: 结果
+        """
+        params = {
+            "id": parent_id
+        }
+        url = 'cgi-bin/department/simplelist'
+        # params 会自动放入 url
+        res = self.enterprise_wechat_send('get', url, params=params)
+        return res
+
+    def delete(self, depart_id):
+        """
+        删除部门
+        :return: 结果
+        """
+        params = {
+            "id": depart_id
+        }
+        url = 'cgi-bin/department/delete'
+        # params 会自动放入 url
+        res = self.enterprise_wechat_send('get', url, params=params)
+        return res
