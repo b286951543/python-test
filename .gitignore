@@ -32,7 +32,7 @@ MANIFEST
 *.manifest
 *.spec
 
-# Installer logs
+# Installer log
 pip-log.txt
 pip-delete-this-directory.txt
 
@@ -137,5 +137,5 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 .idea
-/automated_testing_framework/report/
-/automated_testing_framework/result/
+/api_testing_framework/report/
+/api_testing_framework/result/
