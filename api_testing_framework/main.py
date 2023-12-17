@@ -1,6 +1,8 @@
 import os
 import pytest
 
+from api_testing_framework.util import allure_util
+
 if __name__ == '__main__':
     # print('====== 执行当前目录下有所符合条件的测试案例 =======')
     # pytest.main(['-v', '-s'])
@@ -19,9 +21,12 @@ if __name__ == '__main__':
     # pytest.main(['bao/'])
 
     print('====== 执行 bao 目录下的测试用例 =======')
-    pytest.main(['-k', 'test_department.py', 'testcases/'])
-    # allure generate ./result -o ./report --clean
-    os.system('allure generate ./result -o ./report --clean')
-    # allure open ./report/
-    os.system('allure open ./report/')
-    os.close()
+    # pytest.main(['-k', 'test_department.py', 'testcase/'])
+    # # allure generate ./result -o ./report --clean
+    # os.system('allure generate ./result -o ./report --clean')
+    # # allure open ./report/
+    # os.system('allure open ./report/')
+    # os.close()
+
+    allure_util.execute_test_case('test_department.py')
+    allure_util.open_report()

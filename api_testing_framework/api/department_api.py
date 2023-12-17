@@ -1,6 +1,6 @@
 import random
 
-from automated_testing_framework.apis.enterprise_wechat_api import EnterpriseWechat
+from api_testing_framework.api.enterprise_wechat_api import EnterpriseWechat
 
 
 class Department(EnterpriseWechat):

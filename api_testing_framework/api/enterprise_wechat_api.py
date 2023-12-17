@@ -1,5 +1,5 @@
-from automated_testing_framework.protocol.http_protocol import HttpClient
-from automated_testing_framework.utils.yaml_util import read_config_yaml
+from api_testing_framework.protocol.http_protocol import HttpClient
+from api_testing_framework.util.yaml_util import read_config_yaml
 
 
 class EnterpriseWechat:

@@ -1,12 +1,12 @@
 # 存放不同环境的配置
 
 corp_id:
-  test: xx
-  prd: xx
+  test: ww4af43b9e53769c32
+  prd: ww4af43b9e53769c32
 
 corp_secret:
-  test: xx
-  prd: xx
+  test: yc1GQeSEjvcy3A844Q76LnIlSLS6cdADujTNk_nXq5g
+  prd: yc1GQeSEjvcy3A844Q76LnIlSLS6cdADujTNk_nXq5g
 
 # 域名
 enterprise_wechat_host:

@@ -1,8 +1,8 @@
 import pytest
 import allure
 
-from automated_testing_framework.apis.department_api import Department
-from automated_testing_framework.utils.yaml_util import read_data_yaml
+from api_testing_framework.api.department_api import Department
+from api_testing_framework.util.yaml_util import read_data_yaml
 
 
 # 设置分层, 1级目录

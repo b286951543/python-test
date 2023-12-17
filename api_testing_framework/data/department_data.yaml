@@ -1,4 +1,4 @@
-# 这里只保存异常的数据, 正常的数据写在 testcases
+# 这里只保存异常的数据, 正常的数据写在 testcase
 - 参数name为空:
     name: ''
     parentid: 1

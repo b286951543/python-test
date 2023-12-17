@@ -2,7 +2,7 @@ import requests
 import json
 from jsonpath_ng import parse
 
-from automated_testing_framework.utils.logger_util import logger
+from api_testing_framework.util.logger_util import logger
 
 
 class HttpClient:

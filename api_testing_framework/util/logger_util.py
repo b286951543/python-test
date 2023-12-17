@@ -8,8 +8,8 @@ import os
 root_path = os.path.dirname(os.path.dirname(__file__))
 # 创建 logger 对象
 logger = logging.getLogger(__name__)
-# 获取 logs 文件夹路径
-file_path = os.sep.join([root_path, 'logs'])
+# 获取 log 文件夹路径
+file_path = os.sep.join([root_path, 'log'])
 print('日志文件路径:', file_path)
 # 如果文件夹不存在则创建
 if not os.path.exists(file_path):
