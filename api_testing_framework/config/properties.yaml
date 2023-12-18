@@ -1,0 +1,14 @@
+# 存放不同环境的配置
+
+corp_id:
+  test: xxx
+  prd: xxx
+
+corp_secret:
+  test: xx
+  prd: xxx
+
+# 域名
+enterprise_wechat_host:
+  test: https://qyapi.weixin.qq.com/
+  prd: https://qyapi.weixin.qq.com/

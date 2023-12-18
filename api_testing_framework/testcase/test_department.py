@@ -32,7 +32,7 @@ class TestDepartment:
 
     @allure.title('创建部门 反例')
     @pytest.mark.parametrize('case', read_data_yaml('department_data.yaml'))
-    def test_create_depart_not(self, case):
+    def test_create_depart_fail(self, case):
         """
         反例: 创建部门
         :param case: 测试案例
