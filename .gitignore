@@ -139,3 +139,7 @@ cython_debug/
 .idea
 /api_testing_framework/report/
 /api_testing_framework/result/
+
+api_testing_framework/config/properties.yaml
+web_testing_framework/base/cookies.yaml
+!/api_testing_framework/config/properties.yaml
