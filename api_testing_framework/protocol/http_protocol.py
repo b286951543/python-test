@@ -7,9 +7,9 @@ from api_testing_framework.util.logger_util import logger
 
 class HttpClient:
 
-    def send(self, method, url, counter_example_data=None, **kwargs):
-        if counter_example_data is not None:
-            for key, value in counter_example_data.items():
+    def send(self, method, url, fail_example_data=None, **kwargs):
+        if fail_example_data is not None:
+            for key, value in fail_example_data.items():
                 # 如果传参有 headers, 把 headers 里面的 key 替换为 value
                 if 'headers' in kwargs.keys():
                     self.replace_val(f'$..{key}', kwargs['headers'], value)

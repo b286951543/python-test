@@ -34,7 +34,7 @@ class TestDepartment:
     @pytest.mark.parametrize('case', read_data_yaml('department_data.yaml'))
     def test_create_depart_not(self, case):
         """
-        创建部门的反例
+        反例: 创建部门
         :param case: 测试案例
         :return:
         """
