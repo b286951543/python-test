@@ -1,0 +1,15 @@
+- by: XPATH
+  location: //*[@id="username"] # 姓名
+  action: send_keys
+  text: username # 占位符, 需要和测试用例里的变量名保持一致, 方便替换
+- by: XPATH
+  location: //*[@id="memberAdd_acctid"] # 账号
+  action: send_keys
+  text: acctid
+- by: XPATH
+  location: //*[@id="memberAdd_phone"] # 手机号
+  action: send_keys
+  text: phone
+- by: CSS_SELECTOR
+  location: .js_btn_save
+  action: click
