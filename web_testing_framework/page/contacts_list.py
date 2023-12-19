@@ -12,15 +12,12 @@ class ContactsListPage(Base):
     _init_url = 'https://work.weixin.qq.com/wework_admin/frame#contacts'
     """初始化时的url"""
 
-    def get_contacts_list(self) -> list:
+    __member_list_phone = (By.XPATH, '//*[@id="member_list"]/tr/td[5]')
+    """列表里的手机号"""
+
+    def get_phone_list(self) -> list:
         """
-        获取成员列表
+        获取成员列表的手机号
         return: 成员的手机号
         """
-        eles = self.driver.find_elements(By.XPATH, '//*[@id="member_list"]/tr/td[5]')
-
-        phone_list = []
-        for ele in eles:
-            phone_list.append(ele.text)
-        # 不在页面断言
-        return phone_list
+        return self.get_text_list(self.__member_list_phone)

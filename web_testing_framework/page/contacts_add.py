@@ -10,7 +10,7 @@ class ContactsAddPage(Base):
     https://work.weixin.qq.com/wework_admin/frame#contacts
     """
 
-    __username_input = (By.XPATH, '//*[@id="username"]')
+    __username_input = (By.XPATH, '//*[@id="username2"]')
     """姓名"""
 
     __acctid_input = (By.XPATH, '//*[@id="memberAdd_acctid"]')
@@ -35,13 +35,13 @@ class ContactsAddPage(Base):
         return: 成员列表页面
         """
         # 姓名
-        self.driver.find_element(*self.__username_input).send_keys(username)
+        self.send_keys(self.__username_input, text=username)
         # 账号
-        self.driver.find_element(*self.__acctid_input).send_keys(acctid)
+        self.send_keys(self.__acctid_input, text=acctid)
         # 手机号
-        self.driver.find_element(*self.__phone_input).send_keys(phone)
+        self.send_keys(self.__phone_input, text=phone)
         # 保存
-        self.driver.find_element(*self.__save_btn).click()
+        self.click(self.__save_btn)
         # 返回成员列表页面
         return ContactsListPage(self.driver)
 
@@ -55,13 +55,13 @@ class ContactsAddPage(Base):
         return: 报错内容
         """
         # 姓名
-        self.driver.find_element(*self.__username_input).send_keys(username)
+        self.send_keys(self.__username_input, text=username)
         # 账号
-        self.driver.find_element(*self.__acctid_input).send_keys(acctid)
+        self.send_keys(self.__acctid_input, text=acctid)
         # 手机号
-        self.driver.find_element(*self.__phone_input).send_keys(phone)
+        self.send_keys(self.__phone_input, text=phone)
         # 保存
-        self.driver.find_element(*self.__save_btn).click()
+        self.click(self.__save_btn)
         # 请填写姓名
-        ele = self.driver.find_element(By.CSS_SELECTOR, '.ww_compatibleTxt.ww_compatibleTxt_Small.ww_inputWithTips_WithErr > .ww_inputWithTips_tips')
+        ele = self.find_element(By.CSS_SELECTOR, '.ww_compatibleTxt.ww_compatibleTxt_Small.ww_inputWithTips_WithErr > .ww_inputWithTips_tips')
         return ele.text
