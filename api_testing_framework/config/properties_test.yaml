@@ -1,0 +1,5 @@
+corp_id: xxx
+corp_secret: xx
+
+# 域名
+enterprise_wechat_host: https://qyapi.weixin.qq.com/

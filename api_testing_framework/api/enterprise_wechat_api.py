@@ -18,10 +18,10 @@ class EnterpriseWechat:
         # 获取不同环境的配置信息
         self.__env = read_config_yaml('env.yaml')['env']
         print('当前使用的配置是', self.__env)
-        properties_config = read_config_yaml('properties.yaml')
-        self.__enterprise_wechat_host = properties_config['enterprise_wechat_host'][self.__env]
-        self.__corp_id = properties_config['corp_id'][self.__env]
-        self.__corp_secret = properties_config['corp_secret'][self.__env]
+        properties_config = read_config_yaml(f'properties_{self.__env}.yaml')
+        self.__enterprise_wechat_host = properties_config['enterprise_wechat_host']
+        self.__corp_id = properties_config['corp_id']
+        self.__corp_secret = properties_config['corp_secret']
 
         # 实例化 HttpClient
         self.__http_client = HttpClient()
