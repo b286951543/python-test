@@ -26,23 +26,21 @@ class ContactsAddPage(Base):
     _init_url = 'https://work.weixin.qq.com/wework_admin/frame#contacts'
     """初始化时的url"""
 
-    def contacts_add(self, username, acctid, phone) -> ContactsListPage:
+    def contacts_add(self, data) -> ContactsListPage:
         """
         添加成员操作
-        username: 姓名
-        acctid: 账号
-        phone: 手机号
+        data: 参数
         return: 成员列表页面
         """
-        self.load_locator('contacts_add_page_info.yaml')
-        # 姓名
-        self.send_keys(self.__username_input, text=username)
-        # 账号
-        self.send_keys(self.__acctid_input, text=acctid)
-        # 手机号
-        self.send_keys(self.__phone_input, text=phone)
-        # 保存
-        self.click(self.__save_btn)
+        self.load_locator('contacts_add_page_info.yaml', data)
+        # # 姓名
+        # self.send_keys(self.__username_input, text=username)
+        # # 账号
+        # self.send_keys(self.__acctid_input, text=acctid)
+        # # 手机号
+        # self.send_keys(self.__phone_input, text=phone)
+        # # 保存
+        # self.click(self.__save_btn)
         # 返回成员列表页面
         return ContactsListPage(self.driver)
 

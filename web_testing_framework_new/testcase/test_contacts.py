@@ -29,11 +29,11 @@ class TestContacts:
         # 首页进入 添加成员页面
         contacts_add_page = self.index.goto_contacts_add()
         # 成员列表页面 添加成员
-        contacts_list_page = contacts_add_page.contacts_add(username, acctid, phone)
+        contacts_list_page = contacts_add_page.contacts_add(data)
         # 进入列表页面
         phone_list = contacts_list_page.get_phone_list()
         print(phone_list)
-        assert phone in phone_list
+        assert data['phone'] in phone_list
 
     # def test_contacts_add_empty_username_fail(self):
     #     """

@@ -1,6 +1,7 @@
 import os
 
 import yaml
+from jsonpath_ng import parse
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -113,7 +114,7 @@ class Base:
     #     print('截图为', img_path)
     #     self.driver.save_screenshot(img_path)
 
-    def load_locator(self, yaml_file):
+    def load_locator(self, yaml_file, data=None):
         yaml_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'locator', yaml_file)
         with open(yaml_path, 'r', encoding='utf-8') as f:
             steps = yaml.safe_load(f)
@@ -121,8 +122,16 @@ class Base:
                 by = step.get('by')
                 location = step.get('location')
                 action = step.get('action')
-                if action == 'send':
-                    pass
+                if action == 'send_keys':  # 说明时输入
+                    if data is not None:  # 有传 data, 说明需要把 yaml 里面的值替换成data里面对应的值
+                        if step.get('text') in data.keys():  # yaml 里面的text的内容, 在 data 里面作为key
+                            p = parse('$..text')  # 替换内容
+                            new_step = p.update(step, data[step.get('text')])  # 替换成 data 里面的值
+                            self.send_keys(by, location, new_step.get('text'))
+                            # 下面适用与 yaml 文件只有一层的情况
+                            # self.send_keys(by, location, data[step.get['text']])
+                    else:  # 有传入 data, 说明需要替换
+                        self.send_keys(by, location, step.get('text'))
                 else:
                     # 通过反射调用本类的方法
                     getattr(self, action)(by, location)
