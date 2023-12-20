@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 
 # from webdriver_manager.chrome import ChromeDriverManager
 from web_testing_framework_new.base.handle import warp
+from web_testing_framework_new.util.logger_util import logger
 
 
 class Base:
@@ -122,15 +123,18 @@ class Base:
                 by = step.get('by')
                 location = step.get('location')
                 action = step.get('action')
+                logger.info(f'开始操作元素: by:{by}, location:{location}, action:{action}')
                 if action == 'send_keys':  # 说明时输入
                     if data is not None:  # 有传 data, 说明需要把 yaml 里面的值替换成data里面对应的值
                         if step.get('text') in data.keys():  # yaml 里面的text的内容, 在 data 里面作为key
                             # 把 yaml 里面的 text 的值替换成 data 里面 text 的值
                             new_step = self.replace_val('$..text', step, data[step.get('text')])
+                            logger.info(f'输入文本: text:{new_step.get("text")}')
                             self.send_keys(by, location, new_step.get('text'))
                             # 下面适用与 yaml 文件只有一层的情况
                             # self.send_keys(by, location, data[step.get['text']])
                     else:  # 有传入 data, 说明需要替换
+                        logger.info(f'输入文本: text:{step.get("text")}')
                         self.send_keys(by, location, step.get('text'))
                 else:
                     # 通过反射调用本类的方法
