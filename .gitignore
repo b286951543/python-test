@@ -141,3 +141,7 @@ cython_debug/
 /api_testing_framework/result/
 
 /web_testing_framework/base/cookies.yaml
+/web_testing_framework/report/
+/web_testing_framework/result/
+/web_testing_framework_new/report/
+/web_testing_framework_new/result/

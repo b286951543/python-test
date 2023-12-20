@@ -125,8 +125,8 @@ class Base:
                 if action == 'send_keys':  # 说明时输入
                     if data is not None:  # 有传 data, 说明需要把 yaml 里面的值替换成data里面对应的值
                         if step.get('text') in data.keys():  # yaml 里面的text的内容, 在 data 里面作为key
-                            p = parse('$..text')  # 替换内容
-                            new_step = p.update(step, data[step.get('text')])  # 替换成 data 里面的值
+                            # 把 yaml 里面的 text 的值替换成 data 里面 text 的值
+                            new_step = self.replace_val('$..text', step, data[step.get('text')])
                             self.send_keys(by, location, new_step.get('text'))
                             # 下面适用与 yaml 文件只有一层的情况
                             # self.send_keys(by, location, data[step.get['text']])
@@ -135,3 +135,7 @@ class Base:
                 else:
                     # 通过反射调用本类的方法
                     getattr(self, action)(by, location)
+
+    def replace_val(self, jsonpath_expr, data, value):
+        p = parse(jsonpath_expr)
+        return p.update(data, value)
