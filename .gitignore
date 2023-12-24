@@ -148,3 +148,6 @@ cython_debug/
 !/web_testing_framework_new/base/cookies.yaml
 web_testing_framework/img/
 web_testing_framework_new/img/
+/app_testing_framework/report/
+/app_testing_framework/result/
+/app_testing_framework/testcase/result/

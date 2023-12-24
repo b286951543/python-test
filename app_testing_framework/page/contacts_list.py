@@ -1,7 +1,7 @@
 from appium.webdriver.common.appiumby import AppiumBy
-from selenium.webdriver.common.by import By
 
 from app_testing_framework.base.base import Base
+
 from app_testing_framework.page.contacts_add import ContactsAddPage
 
 
@@ -10,7 +10,7 @@ class ContactsListPage(Base):
     通讯录页面
     """
 
-    __member_add_btn = (AppiumBy.XPATH, f'//*[@text()="添加成员"]')
+    __member_add_btn = (AppiumBy.XPATH, f'//*[@text="添加成员"]')
     """添加成员按钮"""
 
     def goto_contacts_add(self) -> ContactsAddPage:
